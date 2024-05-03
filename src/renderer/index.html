@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+
+    <link rel="stylesheet" href="../output.css" />
+    <script src="/node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script src="js/renderer.js" defer></script>
+    <title>Bob Lambert</title>
+  </head>
+  <body class="bg-background">
+    <div class="min-h-screen flex flex-col h-screen bg-background">
+      <header
+        class="bg-background2 fixed w-screen h-12 flex items-center justify-center gap-2 p-2"
+      >
+        <p>🍂</p>
+        <div class="w-[95%]">
+          <input
+            type="text"
+            placeholder="search his voice.."
+            class="bg-clear w-[20%] shadow-lg shadow-background border-t-[1px] border-text2 rounded-md px-2 py-1 placeholder:text-[.9rem]"
+          />
+          <button
+            class="text-text2 text-[.9rem] hover:text-blu transition-all px-2 py-1"
+          >
+            Title ⊻
+          </button>
+          <button
+            class="text-text2 text-[.9rem] hover:text-blu transition-all px-2 py-1"
+          >
+            year ⊻
+          </button>
+
+          <button
+            class="text-text2 text-[.9rem] hover:bg-blu transition-all px-4 py-1 bg-clear shadow-lg shadow-background border-t-[1px] border-text2 rounded-md"
+          >
+            Read life story
+          </button>
+
+          <button
+            class="text-text2 text-[.9rem] hover:bg-blu transition-all px-4 py-1 bg-clear shadow-lg shadow-background border-t-[1px] border-text2 rounded-md"
+          >
+            All songs
+          </button>
+
+          <button
+            class="text-text2 text-[.9rem] hover:bg-blu transition-all px-4 py-1 bg-clear shadow-lg shadow-background border-t-[1px] border-text2 rounded-md"
+          >
+            New song
+          </button>
+        </div>
+        <p>🍂</p>
+      </header>
+
+      <!-- Slider slider slider -->
+      <div class="flex-1 flex flex-row overflow-y-hidden">
+        <main class="flex-1 bg-background overflow-y-auto p-2">
+          <div class="w-full rounded-lg overflow-hidden">
+            <div class="flex justify-between items-center">
+              <button
+                id="prevBtn"
+                class="focus:outline-none text-text2 font-bold text-2xl"
+              >
+                &lt;
+              </button>
+              <div id="sliderContainer" class="flex-1 overflow-hidden">
+                <div
+                  id="slider"
+                  class="flex transition-transform ease-in-out duration-300"
+                >
+                  <div
+                    class="w-full flex-shrink-0 h-[60vh] bg-blue-500 gap-2 flex items-center justify-center"
+                  >
+                    <img
+                      src="../../assets/eagle1.jpg"
+                      alt=""
+                      class="h-[70%] w-[48%] border-2 border-blu rounded-md"
+                    />
+                    <img
+                      src="../../assets/eagle1.jpg"
+                      alt=""
+                      class="h-[70%] w-[48%] rounded-md"
+                    />
+                  </div>
+                  <div
+                    class="w-full flex-shrink-0 h-[60vh] gap-2 bg-green-500 flex items-center justify-center"
+                  >
+                    <img
+                      src="../../assets/eagle2.jpg"
+                      alt=""
+                      class="h-[70%] w-[48%] border-2 border-[#505c34] rounded-md"
+                    />
+                    <img
+                      src="../../assets/eagle2.jpg"
+                      alt=""
+                      class="h-[70%] w-[48%] rounded-md"
+                    />
+                  </div>
+                  <div
+                    class="w-full flex-shrink-0 h-[60vh] gap-2 bg-red-500 flex items-center justify-center"
+                  >
+                    <img
+                      src="../../assets/eagle3.jpg"
+                      alt=""
+                      class="h-[70%] w-[48%] border-2 border-[#784b0d] rounded-md"
+                    />
+                    <img
+                      src="../../assets/eagle3.jpg"
+                      alt=""
+                      class="h-[70%] w-[48%] rounded-md"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                id="nextBtn"
+                class="focus:outline-none text-text2 font-bold text-2xl"
+              >
+                &gt;
+              </button>
+            </div>
+            <p
+              class="text-center text-text2 font-bold font-mono tracking-widest py-4"
+            >
+              Shalom saint!! Welcome to His Voice
+            </p>
+
+            <!-- dividers dividers -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+              <div class="relative mb-12 px-3 lg:mb-0">
+                <div class="mb-2 flex justify-center">
+                  <span class="text-primary">
+                    <img
+                      src="../../assets/icons//books.png"
+                      class="h-14 w-14"
+                    />
+                  </span>
+                </div>
+                <h6
+                  class="mb-0 font-normal text-center text-text2 text-[.9rem]"
+                >
+                  New Brith
+                </h6>
+                <div
+                  class="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"
+                ></div>
+              </div>
+              <div class="relative mb-12 px-3 lg:mb-0">
+                <div class="mb-2 flex justify-center">
+                  <span class="text-primary">
+                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
+                  </span>
+                </div>
+                <h6
+                  class="mb-0 font-normal text-center text-text2 text-[.9rem]"
+                >
+                  Outpouring
+                </h6>
+                <div
+                  class="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"
+                ></div>
+              </div>
+              <div class="relative mb-12 px-3 lg:mb-0">
+                <div class="mb-2 flex justify-center">
+                  <span class="text-primary">
+                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
+                  </span>
+                </div>
+                <h6
+                  class="mb-0 text-center text-text2 font-normal text-[.9rem]"
+                >
+                  Change of Body
+                </h6>
+                <div
+                  class="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"
+                ></div>
+              </div>
+              <div class="relative mb-12 px-3 lg:mb-0">
+                <div class="mb-2 flex justify-center">
+                  <span class="text-primary">
+                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
+                  </span>
+                </div>
+                <h6
+                  class="mb-0 text-center text-text2 font-normal text-[.9rem]"
+                >
+                  Back to Eden
+                </h6>
+              </div>
+            </div>
+          </div>
+        </main>
+        <aside
+          class="w-[25vw] flex items-center justify-center border-l-2 border-background2 overflow-y-auto no-scrollbar"
+        >
+          Right Sidebar
+        </aside>
+      </div>
+      <!-- end main container -->
+
+      <!-- <footer class="bg-blu">Footer</footer> -->
+    </div>
+  </body>
+</html>

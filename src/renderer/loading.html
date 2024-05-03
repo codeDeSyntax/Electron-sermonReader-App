@@ -1,0 +1,103 @@
+<!-- landing.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';  'self'"
+    />
+
+    <title>Church Sermon App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .landing-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-color:rgb(17, 10, 4);
+        width: 100%;
+      }
+
+      .loading-spinner {
+        border: 6px solid #fafafa;
+        border-left-color: rgb(251 146 60);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+      }
+      h1 {
+        color: rgb(251 146 60);
+        font-size: 40px;
+        font-weight: 700;
+        text-align: center;
+        font-family: monospace;
+      }
+
+      span {
+        color: white;
+      }
+
+      .gradient1 {
+        position: absolute;
+        top: 20vh;
+        left: 20vw;
+        height: 20vh;
+        width: 20vh;
+        filter: blur(70px);
+        opacity: 50px;
+        border-radius: 50%;
+        background-color: white;
+      }
+      .gradient2 {
+        position: absolute;
+        top: 70vh;
+        left: 70vw;
+        height: 10vh;
+        width: 10vh;
+        filter: blur(50px);
+        opacity: 50px;
+        border-radius: 50%;
+        background-color: rgb(251 146 60);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="landing-container">
+      <h1>Welcome to <span class="">His Voice</span>🍂</h1>
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div class="gradient1"></div>
+    <div class="gradient2"></div>
+
+    <script>
+      setTimeout(function () {
+        window.location.href = "index.html";
+      }, 3000);
+    </script>
+  </body>
+</html>
