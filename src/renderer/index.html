@@ -9,7 +9,7 @@
     />
 
     <link rel="stylesheet" href="../output.css" />
-    <script src="/node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="js/renderer.js" defer></script>
     <title>Bob Lambert</title>
   </head>
@@ -25,33 +25,153 @@
             placeholder="search his voice.."
             class="bg-clear w-[20%] shadow-lg shadow-background border-t-[1px] border-text2 rounded-md px-2 py-1 placeholder:text-[.9rem]"
           />
+
           <button
-            class="text-text2 text-[.9rem] hover:text-blu transition-all px-2 py-1"
+            id="dropdownDefaultButton1"
+            data-dropdown-toggle="dropdown1"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
           >
-            Title ⊻
+            Scroll to title
+            <svg
+              class="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
           </button>
-          <button
-            class="text-text2 text-[.9rem] hover:text-blu transition-all px-2 py-1"
+
+          <!-- Dropdown menu -->
+          <div
+            id="dropdown1"
+            class="z-40 hidden divide-y bg-text2 divide-gray-100 rounded-lg shadow w-[24vw]"
           >
-            year ⊻
+            <div
+              class="p-2 text-sm bg-background2 text-gray-700 grid grid-cols-5 gap-2"
+              aria-labelledby="dropdownDefaultButton1"
+            >
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
+              
+            </div>
+          </div>
+
+          <button
+            id="dropdownDefaultButton2"
+            data-dropdown-toggle="dropdown2"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+          >
+            Scroll to year
+            <svg
+              class="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div
+            id="dropdown2"
+            class="z-40 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[24vw] dark:bg-gray-700"
+          >
+          <div
+          class="p-2 text-sm bg-background2 text-gray-700 grid grid-cols-5 gap-2"
+          aria-labelledby="dropdownDefaultButton1"
+        >
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
+          
+        </div>
+          </div>
+
+          <button
+            onclick="navigateTo('')"
+            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+          >
+            Home
           </button>
 
           <button
-            class="text-text2 text-[.9rem] hover:bg-blu transition-all px-4 py-1 bg-clear shadow-lg shadow-background border-t-[1px] border-text2 rounded-md"
-          >
-            Read life story
-          </button>
-
-          <button
-            class="text-text2 text-[.9rem] hover:bg-blu transition-all px-4 py-1 bg-clear shadow-lg shadow-background border-t-[1px] border-text2 rounded-md"
+            onclick="navigateTo('new-song')"
+            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
           >
             All songs
           </button>
 
           <button
-            class="text-text2 text-[.9rem] hover:bg-blu transition-all px-4 py-1 bg-clear shadow-lg shadow-background border-t-[1px] border-text2 rounded-md"
+            onclick="navigateTo('new-song')"
+            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
           >
             New song
+          </button>
+
+          <button
+            onclick="navigateTo('new-song')"
+            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+          >
+            Read life story
           </button>
         </div>
         <p>🍂</p>
@@ -59,146 +179,21 @@
 
       <!-- Slider slider slider -->
       <div class="flex-1 flex flex-row overflow-y-hidden">
-        <main class="flex-1 bg-background overflow-y-auto p-2">
-          <div class="w-full rounded-lg overflow-hidden">
-            <div class="flex justify-between items-center">
-              <button
-                id="prevBtn"
-                class="focus:outline-none text-text2 font-bold text-2xl"
-              >
-                &lt;
-              </button>
-              <div id="sliderContainer" class="flex-1 overflow-hidden">
-                <div
-                  id="slider"
-                  class="flex transition-transform ease-in-out duration-300"
-                >
-                  <div
-                    class="w-full flex-shrink-0 h-[60vh] bg-blue-500 gap-2 flex items-center justify-center"
-                  >
-                    <img
-                      src="../../assets/eagle1.jpg"
-                      alt=""
-                      class="h-[70%] w-[48%] border-2 border-blu rounded-md"
-                    />
-                    <img
-                      src="../../assets/eagle1.jpg"
-                      alt=""
-                      class="h-[70%] w-[48%] rounded-md"
-                    />
-                  </div>
-                  <div
-                    class="w-full flex-shrink-0 h-[60vh] gap-2 bg-green-500 flex items-center justify-center"
-                  >
-                    <img
-                      src="../../assets/eagle2.jpg"
-                      alt=""
-                      class="h-[70%] w-[48%] border-2 border-[#505c34] rounded-md"
-                    />
-                    <img
-                      src="../../assets/eagle2.jpg"
-                      alt=""
-                      class="h-[70%] w-[48%] rounded-md"
-                    />
-                  </div>
-                  <div
-                    class="w-full flex-shrink-0 h-[60vh] gap-2 bg-red-500 flex items-center justify-center"
-                  >
-                    <img
-                      src="../../assets/eagle3.jpg"
-                      alt=""
-                      class="h-[70%] w-[48%] border-2 border-[#784b0d] rounded-md"
-                    />
-                    <img
-                      src="../../assets/eagle3.jpg"
-                      alt=""
-                      class="h-[70%] w-[48%] rounded-md"
-                    />
-                  </div>
-                </div>
-              </div>
-              <button
-                id="nextBtn"
-                class="focus:outline-none text-text2 font-bold text-2xl"
-              >
-                &gt;
-              </button>
-            </div>
-            <p
-              class="text-center text-text2 font-bold font-mono tracking-widest py-4"
+        <main
+          class="flex-1 bg-background overflow-y-auto p-2"
+          id="content"
+        ></main>
+        <aside
+          class="w-[25vw] flex flex-col items-center border-l-2 border-background2 overflow-y-auto no-scrollbar py-16 px-4"
+        >
+          <div className="">
+            <div
+              class="h-10 w-10 flex items-center justify-center rounded-full bg-text1 hover:bg-blu text-text2 transition p-1 cursor-pointer"
             >
-              Shalom saint!! Welcome to His Voice
-            </p>
-
-            <!-- dividers dividers -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img
-                      src="../../assets/icons//books.png"
-                      class="h-14 w-14"
-                    />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 font-normal text-center text-text2 text-[.9rem]"
-                >
-                  New Brith
-                </h6>
-                <div
-                  class="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"
-                ></div>
-              </div>
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 font-normal text-center text-text2 text-[.9rem]"
-                >
-                  Outpouring
-                </h6>
-                <div
-                  class="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"
-                ></div>
-              </div>
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 text-center text-text2 font-normal text-[.9rem]"
-                >
-                  Change of Body
-                </h6>
-                <div
-                  class="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"
-                ></div>
-              </div>
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 text-center text-text2 font-normal text-[.9rem]"
-                >
-                  Back to Eden
-                </h6>
-              </div>
+              A-Z
             </div>
           </div>
-        </main>
-        <aside
-          class="w-[25vw] flex items-center justify-center border-l-2 border-background2 overflow-y-auto no-scrollbar"
-        >
-          Right Sidebar
+          <hr class="w-full text-text2 mt-2" />
         </aside>
       </div>
       <!-- end main container -->
