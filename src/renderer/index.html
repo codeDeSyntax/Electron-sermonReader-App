@@ -1,150 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="script-src 'self' 'unsafe-inline'"
-    />
 
-    <link rel="stylesheet" href="../output.css" />
-    <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
-    <script src="js/renderer.js" defer></script>
-    <title>Bob Lambert</title>
-  </head>
-  <body class="bg-background">
-    <div class="min-h-screen flex flex-col h-screen bg-background">
-      <header
-        class="bg-background2 fixed w-screen h-12 flex items-center justify-center gap-2 p-2"
-      >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/css/all.min.css">
+  <link rel="stylesheet" href="../input.css" />
+  <title>Bob Lambert</title>
+  
+</head>
+
+<body>
+
+  <main class="main">
+      <header class="header">
         <p>🍂</p>
-        <div class="w-[95%]">
+        <div class="switchBtns">
           <input
             type="text"
             placeholder="search his voice.."
-            class="bg-clear w-[20%] shadow-lg shadow-background border-t-[1px] border-text2 rounded-md px-2 py-1 placeholder:text-[.9rem]"
+            class="search-bar"
           />
 
-          <button
-            id="dropdownDefaultButton1"
-            data-dropdown-toggle="dropdown1"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
-          >
-            Scroll to title
-            <svg
-              class="w-2.5 h-2.5 ms-3"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-          </button>
-
-          <!-- Dropdown menu -->
-          <div
-            id="dropdown1"
-            class="z-40 hidden divide-y bg-text2 divide-gray-100 rounded-lg shadow w-[24vw]"
-          >
-            <div
-              class="p-2 text-sm bg-background2 text-gray-700 grid grid-cols-5 gap-2"
-              aria-labelledby="dropdownDefaultButton1"
-            >
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">1918</p>
-              
+          <div class="dropdown">
+            <button class="dropDownButton tracking-wide">Scroll to year ▼</button>
+            <div class="dropdown-content">
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
+            <p class="gridValue">1976</p>
             </div>
           </div>
 
-          <button
-            id="dropdownDefaultButton2"
-            data-dropdown-toggle="dropdown2"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
-          >
-            Scroll to year
-            <svg
-              class="w-2.5 h-2.5 ms-3"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-          </button>
-
-          <!-- Dropdown menu -->
-          <div
-            id="dropdown2"
-            class="z-40 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[24vw] dark:bg-gray-700"
-          >
-          <div
-          class="p-2 text-sm bg-background2 text-gray-700 grid grid-cols-5 gap-2"
-          aria-labelledby="dropdownDefaultButton1"
-        >
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          <p class="text-text2 px-3 py-1 bg-[rgba(0,0,0,0.7)]">A</p>
-          
-        </div>
+          <div class="dropdown">
+            <button class="dropDownButton">Scroll to Title ▼</button>
+            <div class="dropdown-content">
+              <p class="gridValue">A</p>
+              <i class="fas-fa-facebook"></i>
+              <p class="gridValue">B</p>
+              <p class="gridValue">C</p>
+              <p class="gridValue">A</p>
+              <p class="gridValue">B</p>
+              <p class="gridValue">C</p>
+              <p class="gridValue">A</p>
+              <p class="gridValue">B</p>
+              <p class="gridValue">C</p>
+              <p class="gridValue">A</p>
+              <p class="gridValue">B</p>
+              <p class="gridValue">C</p>
+              <p class="gridValue">A</p>
+              <p class="gridValue">B</p>
+              <p class="gridValue">C</p>
+            </div>
           </div>
 
+          <!-- Dropdown menu -->
+
           <button
-            onclick="navigateTo('')"
-            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onclick="navigateTo(' ')"
+            class="nav-other-buttons"
             type="button"
           >
             Home
@@ -152,7 +80,7 @@
 
           <button
             onclick="navigateTo('new-song')"
-            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="nav-other-buttons"
             type="button"
           >
             All songs
@@ -160,7 +88,7 @@
 
           <button
             onclick="navigateTo('new-song')"
-            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="nav-other-buttons"
             type="button"
           >
             New song
@@ -168,7 +96,7 @@
 
           <button
             onclick="navigateTo('new-song')"
-            class="text-white bg-background hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="nav-other-buttons"
             type="button"
           >
             Read life story
@@ -177,28 +105,23 @@
         <p>🍂</p>
       </header>
 
-      <!-- Slider slider slider -->
-      <div class="flex-1 flex flex-row overflow-y-hidden">
-        <main
-          class="flex-1 bg-background overflow-y-auto p-2"
-          id="content"
-        ></main>
-        <aside
-          class="w-[25vw] flex flex-col items-center border-l-2 border-background2 overflow-y-auto no-scrollbar py-16 px-4"
-        >
-          <div className="">
-            <div
-              class="h-10 w-10 flex items-center justify-center rounded-full bg-text1 hover:bg-blu text-text2 transition p-1 cursor-pointer"
-            >
-              A-Z
-            </div>
-          </div>
-          <hr class="w-full text-text2 mt-2" />
-        </aside>
-      </div>
-      <!-- end main container -->
-
-      <!-- <footer class="bg-blu">Footer</footer> -->
+    <div class="flex-container">
+      <aside class="sidebar">
+        <img src="../../assets/icons/book.png" alt="" class="bok" onclick="showSide()">
+      </aside>
+      <aside class="aside" id="aside">
+        <div class="">
+          hello
+        </div>
+        <div id="allsermons">
+         
+        </div>
+      </aside>
+      <section class="contentSwitch" id="content"></section>
     </div>
-  </body>
+  </main>
+  <script type="module" src="../../src/renderer/js/renderer.js" defer></script>
+</body>
+
 </html>
+

@@ -1,124 +1,69 @@
-const form = document.querySelector("#img-form");
-const img = document.querySelector("#img");
-const outputPath = document.querySelector("#output-path");
-const filename = document.querySelector("#filename");
-const heightInput = document.querySelector("#height");
-const widthInput = document.querySelector("#width");
-
-document.addEventListener("DOMContentLoaded", function () {
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const slider = document.getElementById("slider");
-
-  let slideIndex = 0;
-
-  const showSlide = (index) => {
-    const slides = document.querySelectorAll("#slider > div");
-    if (index >= slides.length) {
-      index = 0;
-    } else if (index < 0) {
-      index = slides.length - 1;
-    }
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    slideIndex = index;
-  };
-
-  prevBtn.addEventListener("click", () => {
-    showSlide(slideIndex - 1);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    showSlide(slideIndex + 1);
-  });
-});
+import earlySermons from "../../../assets/sermons/1964-1969/firstset.js";
 
 const appContainer = document.getElementById("content");
+const sermonsContainer = document.getElementById("allsermons");
+const asideContainer = document.getElementById("aside");
+// const vidHold = document.getElementById("video");
 
-// Define page components
 function renderHomePage() {
+  asideContainer.style.display = "none";
   appContainer.innerHTML = `
-  <div class="w-full rounded-lg overflow-hidden pt-36">
-            <div class="flex justify-between items-center">
-              <img src='../../assets/Bob.jpg' class='h-[40vh] w-[90%] hover:border-2 border-blu m-auto rounded-lg'/>
-            </div>
-            <p
-              class="text-center text-text2 font-bold font-mono tracking-widest py-4"
-            >
-              Shalom saint!! Welcome to His Voice
-            </p>
-            <hr class='bg-background2 w-[90%] m-auto my-2'/>
-            <!-- dividers dividers -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img
-                      src="../../assets/icons//books.png"
-                      class="h-14 w-14 z-10"
-                    />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 font-normal text-center text-text2 text-[.9rem]"
-                >
-                  New Brith
-                </h6>
-                <p class='text-blu absolute right-0 top-0 text-[3rem] '>⇢</p>
-              </div>
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img src="../../assets/icons/books.png" class="h-14 w-14 z-10" />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 font-normal text-center text-text2 text-[.9rem]"
-                >
-                  Outpouring
-                </h6>
-                <p class='text-blu absolute right-0 top-0 text-[3rem] '>⇢</p>
-              </div>
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 text-center text-text2 font-normal text-[.9rem]"
-                >
-                  Change of Body
-                </h6>
-                <p class='text-blu absolute right-0 top-0 text-[3rem] '>⇢</p>
-              </div>
-              <div class="relative mb-12 px-3 lg:mb-0">
-                <div class="mb-2 flex justify-center">
-                  <span class="text-primary">
-                    <img src="../../assets/icons/books.png" class="h-14 w-14" />
-                  </span>
-                </div>
-                <h6
-                  class="mb-0 text-center text-text2 font-normal text-[.9rem]"
-                >
-                  Back to Eden
-                </h6>
-              </div>
-            </div>
-           
-          </div>
-  `;
+  <div style=''>
+  <div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${earlySermons[0].date} <span>${earlySermons[0].title}</span></div>
+  <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${earlySermons[0].title}<p/>
+  <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${earlySermons[0].date}<p/>
+  <p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; font-weight:600; '>🔊${earlySermons[0].sermon}🔑</p
+  <div/>
+    `;
 }
 
-function renderNewSongPage() {
-  appContainer.innerHTML = `
-    <div class='py-14'>
-    <h1>New Song Page</h1>
-    <p>This is the new song page.</p>
-    <button onclick="navigateTo('')">Go back to Home</button>
+function renderAllSermons() {
+  sermonsContainer.innerHTML = "";
+  earlySermons.forEach((sermon) => {
+    const sermonElement = document.createElement("li");
+    sermonElement.classList.add("sermonDiv");
+    // sermonElement.setAttribute('data_url', `${sermon.filename}`);
+    if (sermon.id % 2 === 0) {
+      sermonElement.style.background = "#3d4043";
+    } else {
+      sermonElement.style.background = "#303336";
+    }
+
+    sermonElement.innerHTML = `
+    <div>
+    <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title}</h3>
+    <p style='color:#5e9bc3; font-family:monospace; font-size:.7rem'> ${sermon.date}</p>
+    </div>
+
+    <div>
+    <p style='color:#bfc5c9; font-family:monospace; font-size:.7rem'>Time:</p>
+    <p style='color:#bfc5c9; font-family:monospace; font-size:.7rem'>Location:</p>
     </div>
   `;
-}
+    sermonsContainer.appendChild(sermonElement);
 
+    sermonElement.addEventListener("click", () => {
+      appContainer.innerHTML = `
+      <div style=''>
+      <div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:74%; margin:auto'>${sermon.date} <span>${sermon.title}</span></div>
+      <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${sermon.title}<p/>
+      <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${sermon.date}<p/>
+      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600; line-height:6rem'>🔊${sermon.sermon}🔑</p
+      <div/>
+      
+      `;
+    });
+  });
+}
+setTimeout;
+renderAllSermons();
+function renderNewSongPage() {
+  appContainer.innerHTML = `
+      <div class='py-14 text-[3rem] font-mono text-text1  text-center'>
+      BROKEN FELLOWSHIP
+      </div>
+    `;
+}
 // Define route handling logic
 function navigateTo(route) {
   switch (route) {
@@ -132,5 +77,4 @@ function navigateTo(route) {
       renderHomePage();
   }
 }
-// Initial page rendering
 navigateTo(" ");

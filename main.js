@@ -1,8 +1,7 @@
 const path = require("path");
 // const os = require('os');
 const fs = require("fs");
-const resizeImg = require("resize-img");
-const { app, BrowserWindow, Menu, ipcMain, shell } = require("electron");
+const { app, BrowserWindow, Menu, screen, ipcMain, shell } = require("electron");
 
 const isDev = process.env.NODE_ENV !== "production";
 const isMac = process.platform === "darwin";
@@ -12,9 +11,10 @@ let aboutWindow;
 
 // Main Window
 function createMainWindow() {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
   mainWindow = new BrowserWindow({
-    minWidth: 1000,
-    height: 600,
+    minWidth: width,
+    height: height,
     icon: `${__dirname}/assets/Brobob.jpg`,
     resizable: isDev,
     webPreferences: {
@@ -46,6 +46,7 @@ function createAboutWindow() {
 
 // When the app is ready, create the window
 app.on("ready", () => {
+  
   createMainWindow();
 
   const mainMenu = Menu.buildFromTemplate(menu);
@@ -86,16 +87,7 @@ const menu = [
         },
       ]
     : []),
-  // {
-  //   label: 'File',
-  //   submenu: [
-  //     {
-  //       label: 'Quit',
-  //       click: () => app.quit(),
-  //       accelerator: 'CmdOrCtrl+W',
-  //     },
-  //   ],
-  // },
+ 
   ...(isDev
     ? [
         {
