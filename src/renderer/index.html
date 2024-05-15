@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../../node_modules/@fortawesome/css/all.min.css">
   <link rel="stylesheet" href="../input.css" />
   <title>Bob Lambert</title>
+  <style>
+   
+
+
+  </style>
   
 </head>
 
@@ -71,17 +76,25 @@
           <!-- Dropdown menu -->
 
           <button
-            onclick="navigateTo(' ')"
             class="nav-other-buttons"
             type="button"
+            id="homeBtn"
           >
             Home
           </button>
 
           <button
-            onclick="navigateTo('new-song')"
             class="nav-other-buttons"
             type="button"
+            id="sermonBtn"
+          >
+            Sermons
+          </button>
+
+          <button
+            class="nav-other-buttons"
+            type="button"
+            id="allSongBtn"
           >
             All songs
           </button>
@@ -106,21 +119,39 @@
       </header>
 
     <div class="flex-container">
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <img src="../../assets/icons/book.png" alt="" class="bok" onclick="showSide()">
+        
       </aside>
       <aside class="aside" id="aside">
-        <div class="">
-          hello
+        <div class="navigate">
+          <p>🍳</p>
+          <p style="font-size: large; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 700; color:#c8cfd3; cursor:pointer" id="closeSide" onclick="hideSide()">X</p>
         </div>
-        <div id="allsermons">
+        <div id="allsermons" >
          
         </div>
       </aside>
-      <section class="contentSwitch" id="content"></section>
+      <section class="contentSwitch" id="content" src="../../assets/images/Bro bob.jpg"></section>
     </div>
   </main>
-  <script type="module" src="../../src/renderer/js/renderer.js" defer></script>
+  <script>
+    
+    const showSide = () => {
+      document.getElementById("aside").style.display = "block";
+      document.getElementById("sidebar").style.display = "none";
+      document.getElementById("sermonhead").style.width = "100%";
+    }
+    const hideSide = () => {
+      document.getElementById("sidebar").style.display = "block";
+      document.getElementById("aside").style.display = "none";
+    }
+    
+    
+    
+    
+    </script>
+<script type="module" src="../../src/renderer/js/renderer.js"></script>
 </body>
 
 </html>

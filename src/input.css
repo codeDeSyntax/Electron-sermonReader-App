@@ -57,18 +57,20 @@
 .sidebar {
   height: 100vh;
   width: 3%;
-  background-color:rgba(0,0,0,0.5);
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 8px;
 }
-.bok{
-  height:2rem;
+.bok {
+  height: 2rem;
   width: 2rem;
   border-radius: 10px;
+  cursor: pointer;
 }
-.bok:hover{
+
+.bok:hover {
   box-shadow: 0 0 10px white;
   transition: ease;
 }
@@ -87,9 +89,15 @@ aside::-webkit-scrollbar-thumb {
 aside {
   position: sticky;
   top: 60px;
-  width: 26%;
+  width: 26vw;
   height: 94vh;
   overflow-y: auto; /* Make aside scrollable */
+}
+.navigate {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .sermonDiv {
   display: flex;
@@ -97,6 +105,44 @@ aside {
   align-items: center;
   padding: 10px 4px;
   list-style: none;
+  margin-right: 4px;
+  margin-top: 1px;
+}
+.home {
+  background: url("../assets/images/leather.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #c8cfd3;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+.sermonBackground{
+  background: url("../assets/images/darker.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+.info {
+  width: 70%;
+  border-radius: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+.bob {
+  height: 18rem;
+  width: 18rem;
+  overflow: hidden;
+  border-radius: 50%;
 }
 .gridValue {
   padding: 3px 0.4rem;
@@ -108,15 +154,19 @@ aside {
   font-family: monospace;
 }
 .contentSwitch {
-  width: 74%;
+  width: 74vw;
   display: flex;
   justify-content: center;
+  /* align-items: center; */
   flex-grow: 1;
-  overflow-wrap: break-word;
+  overflow-y: hidden;
+  /* overflow-x: hidden; */
+}
+.sermonText {
+  text-wrap: wrap;
   word-break: break-word;
   text-overflow: ellipsis;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-wrap: break-word;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -209,14 +259,13 @@ aside {
 }
 .videoHold {
   width: 100%;
+  margin-top: 7rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 video {
-  width: 100%;
+  width: 90%;
   margin: auto;
-  height: 40vh;
+  height: 30%;
   object-fit: cover;
   border-radius: 15px;
 }

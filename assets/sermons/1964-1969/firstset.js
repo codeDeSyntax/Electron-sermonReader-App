@@ -3805,7 +3805,8 @@ const earlySermons = [
     year:'1965',
     date:"April-11-1965 Am New York, NY",
     sermon:`
-   Shall we bow our heads, please, in a word of prayer?
+   Shall we bow our heads, <br/>
+   please, in a word of prayer?
    Brother Lambert prays opening prayer;
    Heavenly Father, we gather here again this Sunday, Lord, they call it today, Lord Palm
    Sunday I believe. Noticing on the way down in the car, Heavenly Father, the different Catholic
