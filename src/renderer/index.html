@@ -27,50 +27,50 @@
             type="text"
             placeholder="search his voice.."
             class="search-bar"
+            id='searchBar'
           />
 
           <div class="dropdown">
             <button class="dropDownButton tracking-wide">Scroll to year ▼</button>
             <div class="dropdown-content">
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
-            <p class="gridValue">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1976</p>
             </div>
           </div>
 
           <div class="dropdown">
             <button class="dropDownButton">Scroll to Title ▼</button>
             <div class="dropdown-content">
-              <p class="gridValue">A</p>
-              <i class="fas-fa-facebook"></i>
-              <p class="gridValue">B</p>
-              <p class="gridValue">C</p>
-              <p class="gridValue">A</p>
-              <p class="gridValue">B</p>
-              <p class="gridValue">C</p>
-              <p class="gridValue">A</p>
-              <p class="gridValue">B</p>
-              <p class="gridValue">C</p>
-              <p class="gridValue">A</p>
-              <p class="gridValue">B</p>
-              <p class="gridValue">C</p>
-              <p class="gridValue">A</p>
-              <p class="gridValue">B</p>
-              <p class="gridValue">C</p>
-            </div>
+              <p class="gridValue" id="titleOrYear">A</p>
+              <p class="gridValue" id="titleOrYear">B</p>
+              <p class="gridValue" id="titleOrYear">C</p>
+              <p class="gridValue" id="titleOrYear">A</p>
+              <p class="gridValue" id="titleOrYear">B</p>
+              <p class="gridValue" id="titleOrYear">C</p>
+              <p class="gridValue" id="titleOrYear">A</p>
+              <p class="gridValue" id="titleOrYear">B</p>
+              <p class="gridValue" id="titleOrYear">C</p>
+              <p class="gridValue" id="titleOrYear">A</p>
+              <p class="gridValue" id="titleOrYear">B</p>
+              <p class="gridValue" id="titleOrYear">C</p>
+              <p class="gridValue" id="titleOrYear">A</p>
+              <p class="gridValue" id="titleOrYear">B</p>
+              <p class="gridValue" id="titleOrYear">C</p>
+            </div> 
           </div>
 
           <!-- Dropdown menu -->
@@ -121,7 +121,17 @@
     <div class="flex-container">
       <aside class="sidebar" id="sidebar">
         <img src="../../assets/icons/book.png" alt="" class="bok" onclick="showSide()">
-        
+        <div style="display: flex; align-items: center; flex-direction: column;">
+          <p style="font-size: 1.6rem;" id="viewer" >👁‍🗨</p>
+          <div style="padding: 4px;" id="readSize">
+            <li class="textSize">1</li>
+            <li class="textSize">2</li>
+            <li class="textSize">3</li>
+            <li class="textSize">4</li>
+            <li class="textSize">5</li>
+            <li class="textSize">6</li>
+          </div>
+        </div>
       </aside>
       <aside class="aside" id="aside">
         <div class="navigate">
@@ -136,11 +146,33 @@
     </div>
   </main>
   <script>
+
+    let isShowingFontSizes = false
+      let readSize = document.getElementById("readSize");
+      let viewer = document.getElementById("viewer");  
+      readSize.style.display = 'none';
+      
+      viewer.addEventListener('click' , () => { 
+        isShowingFontSizes = !isShowingFontSizes;
+      if (isShowingFontSizes) {
+        readSize.style.display = "block";
+        viewer.innerHTML = "👁‍🗨";
+      } else {
+        readSize.style.display = "none";
+        viewer.innerHTML = "👁‍🗨";
+      }
+    })
+      
+    readSize.addEventListener('click' , (e) => {
+      let size = e.target.innerHTML;
+      document.getElementById("sermonText").style.fontSize = `${size}rem`;
+    })
+    
     
     const showSide = () => {
       document.getElementById("aside").style.display = "block";
       document.getElementById("sidebar").style.display = "none";
-      document.getElementById("sermonhead").style.width = "100%";
+      // document.getElementById("sermonhead").style.width = "76%";
     }
     const hideSide = () => {
       document.getElementById("sidebar").style.display = "block";
