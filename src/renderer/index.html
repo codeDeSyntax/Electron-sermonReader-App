@@ -6,7 +6,6 @@
       http-equiv="Content-Security-Policy"
       content="script-src 'self' 'unsafe-inline';"
     />
-    <link rel="stylesheet" href="../../node_modules/@fortawesome/css/all.min.css">
   <link rel="stylesheet" href="../input.css" />
   <title>Bob Lambert</title>
   <style>
@@ -33,14 +32,14 @@
           <div class="dropdown">
             <button class="dropDownButton tracking-wide">Scroll to year ▼</button>
             <div class="dropdown-content">
+            <p class="gridValue" id="titleOrYear">1970</p>
+            <p class="gridValue" id="titleOrYear">1971</p>
+            <p class="gridValue" id="titleOrYear">1972</p>
+            <p class="gridValue" id="titleOrYear">1973</p>
+            <p class="gridValue" id="titleOrYear">1974</p>
+            <p class="gridValue" id="titleOrYear">1975</p>
             <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
+            <p class="gridValue" id="titleOrYear">1977</p>
             <p class="gridValue" id="titleOrYear">1976</p>
             <p class="gridValue" id="titleOrYear">1976</p>
             <p class="gridValue" id="titleOrYear">1976</p>
@@ -114,6 +113,7 @@
           >
             Read life story
           </button>
+          <p id='video' style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left;'></p>
         </div>
         <p>🍂</p>
       </header>
@@ -178,8 +178,9 @@
       document.getElementById("sidebar").style.display = "block";
       document.getElementById("aside").style.display = "none";
     }
-    
-    
+   
+
+   
     
     
     </script>

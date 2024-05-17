@@ -8,14 +8,15 @@ const homeBtn = document.getElementById("homeBtn");
 const sermonBtn = document.getElementById("sermonBtn");
 const allSongBtn = document.getElementById("allSongBtn");
 // const searchBar = document.getElementById("searchBar");
-const searchKey = document.getElementById("titleOrYear");
-// const vidHold = document.getElementById("video");
+// let searchKey = document.getElementById("titleOrYear");
+let vidHold = document.getElementById("video");
+const searchKeys = document.querySelectorAll("#titleOrYear");
 
 function renderHomePage() {
   asideContainer.style.display = "none";
   sidebar.style.display = "none";
   appContainer.innerHTML = `
-      <div class='home' >
+      <div class='home ' >
       <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem; font-weight:bold;'>The son of man recordings</p>
 
       <p style='color:#40aae2; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: .em; text-align:center; font-style:italic;'>1964 - 1973</p>
@@ -78,7 +79,7 @@ function renderAllSermons() {
       <div style='background-color:#22272a; display:flex; align-items:center; justify-content:center; padding:10px 0px;  color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${sermon.date} <span>${sermon.title}</span></div>
       <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${sermon.title}<p/>
       <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${sermon.date}<p/>
-      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:left; text-wrap:wrap; font-weight:600; line-height:6rem' class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
+      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600; line-height:6rem' class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
       <div/>
       
       `;
@@ -86,29 +87,30 @@ function renderAllSermons() {
   });
 }
 
-// searchBar.addEventListener('change' , (e) => {
-// const searchQuery = e.target.value;
-// filter
-// })
+searchKeys.forEach((searchKey) => {
+  searchKey.addEventListener("click", (e) => {
+    let value = e.target.innerHTML;
+    vidHold.textContent = value;
 
-searchKey.addEventListener('click' ,  (e) => {
-  let srchKey = document.getElementById('searchBar').value.toLowerCase();
-  let arrayFiltered = earlySermons.filter((eachSermon) => {
-    return eachSermon.title.includes(e.target.value.charAt(0)) || eachSermon.sermon.includes(srchKey) || eachSermon.year.includes(searchKey)
-  })
+    let filteredSermons = earlySermons.filter((sermon) => {
+      return (
+        sermon.title.toLowerCase().charAt(0).includes(value.toLowerCase()) ||
+        sermon.year.includes(value)
+      );
+    });
 
-  sermonsContainer.innerHTML = "";
-  arrayFiltered.forEach((sermon) => {
-    const sermonElement = document.createElement("li");
-    sermonElement.classList.add("sermonDiv");
-    // sermonElement.setAttribute('data_url', `${sermon.filename}`);
-    if (sermon.id % 2 === 0) {
-      sermonElement.style.background = "#3d4043";
-    } else {
-      sermonElement.style.background = "#303336";
-    }
+    sermonsContainer.innerHTML = "";
+    filteredSermons.forEach((sermon) => {
+      const sermonElement = document.createElement("li");
+      sermonElement.classList.add("sermonDiv");
+      // sermonElement.setAttribute('data_url', `${sermon.filename}`);
+      if (sermon.id % 2 === 0) {
+        sermonElement.style.background = "#3d4043";
+      } else {
+        sermonElement.style.background = "#303336";
+      }
 
-    sermonElement.innerHTML = `
+      sermonElement.innerHTML = `
     <div>
     <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title}</h3>
     <p style='color:#5e9bc3; font-family:monospace; font-size:.7rem'> ${sermon.date}</p>
@@ -119,27 +121,27 @@ searchKey.addEventListener('click' ,  (e) => {
     <p style='color:#bfc5c9; font-family:monospace; font-size:.7rem'>Location:</p>
     </div>
   `;
-    sermonsContainer.appendChild(sermonElement);
+      sermonsContainer.appendChild(sermonElement);
 
-    // sermonElement.addEventListener("click", () => {
-    //   appContainer.innerHTML = `
-    //   <div style=' width:100%' class='sermonBackground'>
-    //   <div style='background-color:#22272a; display:flex; align-items:center; justify-content:center; padding:10px 0px;  color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${sermon.date} <span>${sermon.title}</span></div>
-    //   <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${sermon.title}<p/>
-    //   <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${sermon.date}<p/>
-    //   <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:left; text-wrap:wrap; font-weight:600; line-height:6rem' class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
-    //   <div/>
+      sermonElement.addEventListener("click", () => {
+        appContainer.innerHTML = `
+      <div style=' width:100%' class='sermonBackground'>
+      <div style='background-color:#22272a; display:flex; align-items:center; justify-content:center; padding:10px 0px;  color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${sermon.date} <span>${sermon.title}</span></div>
+      <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${sermon.title}<p/>
+      <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${sermon.date}<p/>
+      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600; line-height:6rem' class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
+      <div/>
       
-    //   `;
-    // });
+      `;
+      });
+    });
   });
-
-} )
+});
 
 function goToSermons() {
   appContainer.innerHTML = "";
   appContainer.innerHTML = `
- <div style='width:100%' class=''>
+ <div style='width:100%' class='sermonBackground'>
 <div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${earlySermons[0].date} <span>${earlySermons[0].title}</span></div>
 <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${earlySermons[0].title}<p/>
 <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${earlySermons[0].date}<p/>
