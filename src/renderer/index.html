@@ -28,26 +28,20 @@
             class="search-bar"
             id='searchBar'
           />
-
+          <p style="cursor: pointer;" onclick="searchText()">🍳</p>
           <div class="dropdown">
             <button class="dropDownButton tracking-wide">Scroll to year ▼</button>
             <div class="dropdown-content">
+            <p class="gridValue" id="titleOrYear">1964</p>
+            <p class="gridValue" id="titleOrYear">1965</p>
+            <p class="gridValue" id="titleOrYear">1967</p>
+            <p class="gridValue" id="titleOrYear">1968</p>
+            <p class="gridValue" id="titleOrYear">1969</p>
             <p class="gridValue" id="titleOrYear">1970</p>
             <p class="gridValue" id="titleOrYear">1971</p>
             <p class="gridValue" id="titleOrYear">1972</p>
             <p class="gridValue" id="titleOrYear">1973</p>
-            <p class="gridValue" id="titleOrYear">1974</p>
-            <p class="gridValue" id="titleOrYear">1975</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1977</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
-            <p class="gridValue" id="titleOrYear">1976</p>
+            
             </div>
           </div>
 
@@ -57,18 +51,29 @@
               <p class="gridValue" id="titleOrYear">A</p>
               <p class="gridValue" id="titleOrYear">B</p>
               <p class="gridValue" id="titleOrYear">C</p>
-              <p class="gridValue" id="titleOrYear">A</p>
-              <p class="gridValue" id="titleOrYear">B</p>
-              <p class="gridValue" id="titleOrYear">C</p>
-              <p class="gridValue" id="titleOrYear">A</p>
-              <p class="gridValue" id="titleOrYear">B</p>
-              <p class="gridValue" id="titleOrYear">C</p>
-              <p class="gridValue" id="titleOrYear">A</p>
-              <p class="gridValue" id="titleOrYear">B</p>
-              <p class="gridValue" id="titleOrYear">C</p>
-              <p class="gridValue" id="titleOrYear">A</p>
-              <p class="gridValue" id="titleOrYear">B</p>
-              <p class="gridValue" id="titleOrYear">C</p>
+              <p class="gridValue" id="titleOrYear">D</p>
+              <p class="gridValue" id="titleOrYear">E</p>
+              <p class="gridValue" id="titleOrYear">F</p>
+              <p class="gridValue" id="titleOrYear">G</p>
+              <p class="gridValue" id="titleOrYear">H</p>
+              <p class="gridValue" id="titleOrYear">I</p>
+              <p class="gridValue" id="titleOrYear">J</p>
+              <p class="gridValue" id="titleOrYear">K</p>
+              <p class="gridValue" id="titleOrYear">L</p>
+              <p class="gridValue" id="titleOrYear">M</p>
+              <p class="gridValue" id="titleOrYear">N</p>
+              <p class="gridValue" id="titleOrYear">O</p>
+              <p class="gridValue" id="titleOrYear">P</p>
+              <p class="gridValue" id="titleOrYear">Q</p>
+              <p class="gridValue" id="titleOrYear">R</p>
+              <p class="gridValue" id="titleOrYear">S</p>
+              <p class="gridValue" id="titleOrYear">T</p>
+              <p class="gridValue" id="titleOrYear">U</p>
+              <p class="gridValue" id="titleOrYear">V</p>
+              <p class="gridValue" id="titleOrYear">W</p>
+              <p class="gridValue" id="titleOrYear">X</p>
+              <p class="gridValue" id="titleOrYear">Y</p>
+              <p class="gridValue" id="titleOrYear">Z</p>
             </div> 
           </div>
 
@@ -110,10 +115,11 @@
             onclick="navigateTo('new-song')"
             class="nav-other-buttons"
             type="button"
+            id="vidBtn"
           >
-            Read life story
+            Vids
           </button>
-          <p id='video' style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left;'></p>
+         
         </div>
         <p>🍂</p>
       </header>
@@ -122,7 +128,10 @@
       <aside class="sidebar" id="sidebar">
         <img src="../../assets/icons/book.png" alt="" class="bok" onclick="showSide()">
         <div style="display: flex; align-items: center; flex-direction: column;">
-          <p style="font-size: 1.6rem;" id="viewer" >👁‍🗨</p>
+          <p id="viewer" style="font-size: 2rem; color:#c8cfd3;display:flex; padding-top: 4px; cursor:pointer">
+            <span style="font-size: 24px;">A</span>
+            <span style="font-size: 12px;">a</span>
+        </p>
           <div style="padding: 4px;" id="readSize">
             <li class="textSize">1</li>
             <li class="textSize">2</li>
@@ -156,10 +165,9 @@
         isShowingFontSizes = !isShowingFontSizes;
       if (isShowingFontSizes) {
         readSize.style.display = "block";
-        viewer.innerHTML = "👁‍🗨";
       } else {
         readSize.style.display = "none";
-        viewer.innerHTML = "👁‍🗨";
+       
       }
     })
       
@@ -179,6 +187,36 @@
       document.getElementById("aside").style.display = "none";
     }
    
+
+    let debounceTimeout;
+
+function debounceSearch() {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(searchText, 300); // Adjust the debounce delay as needed
+}
+    function searchText() {
+    const input = document.getElementById('searchBar').value.toLowerCase();
+    const paragraph = document.getElementById('sermonText');
+    const text = paragraph.innerText.toLowerCase();
+    const index = text.indexOf(input);
+
+    // Remove previous highlights
+    paragraph.innerHTML = paragraph.innerText;
+    if (index !== -1 && input.length > 0) {
+        // Highlight the text
+        const highlightedText = paragraph.innerHTML.substring(0, index) + 
+            '<span class="highlight">' + paragraph.innerHTML.substring(index, index + input.length) + '</span>' + 
+            paragraph.innerHTML.substring(index + input.length);
+        paragraph.innerHTML = highlightedText;
+
+        // Scroll to the highlighted text
+        const highlightElement = document.querySelector('.highlight');
+        if (highlightElement) {
+            highlightElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+}
+
 
    
     

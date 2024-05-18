@@ -1,4 +1,7 @@
 import earlySermons from "../../../assets/sermons/1964-1969/firstset.js";
+import secondSet from "../../../assets/sermons/1970/1970.js";
+
+const allSermons = earlySermons.concat(secondSet);
 
 const appContainer = document.getElementById("content");
 const sermonsContainer = document.getElementById("allsermons");
@@ -7,6 +10,7 @@ const sidebar = document.getElementById("sidebar");
 const homeBtn = document.getElementById("homeBtn");
 const sermonBtn = document.getElementById("sermonBtn");
 const allSongBtn = document.getElementById("allSongBtn");
+const vidBtn = document.getElementById("vidBtn");
 // const searchBar = document.getElementById("searchBar");
 // let searchKey = document.getElementById("titleOrYear");
 let vidHold = document.getElementById("video");
@@ -50,7 +54,7 @@ function renderHomePage() {
 
 function renderAllSermons() {
   sermonsContainer.innerHTML = "";
-  earlySermons.forEach((sermon) => {
+  allSermons.forEach((sermon) => {
     const sermonElement = document.createElement("li");
     sermonElement.classList.add("sermonDiv");
     // sermonElement.setAttribute('data_url', `${sermon.filename}`);
@@ -62,8 +66,13 @@ function renderAllSermons() {
 
     sermonElement.innerHTML = `
     <div>
-    <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title}</h3>
-    <p style='color:#5e9bc3; font-family:monospace; font-size:.7rem'> ${sermon.date}</p>
+    <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title.slice(
+      0,
+      30
+    )}..</h3>
+    <p style='color:#5e9bc3; font-family:monospace; font-size:.7rem'> ${
+      sermon.date
+    }</p>
     </div>
 
     <div>
@@ -74,12 +83,14 @@ function renderAllSermons() {
     sermonsContainer.appendChild(sermonElement);
 
     sermonElement.addEventListener("click", () => {
+      document.getElementById("aside").style.display = "none";
+      document.getElementById("sidebar").style.display = "block";
       appContainer.innerHTML = `
-      <div style=' width:100%' class='sermonBackground'>
+      <div style=' width:100%' class='sermonBackground' id='sermonBackground'>
       <div style='background-color:#22272a; display:flex; align-items:center; justify-content:center; padding:10px 0px;  color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${sermon.date} <span>${sermon.title}</span></div>
       <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${sermon.title}<p/>
       <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${sermon.date}<p/>
-      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600; line-height:6rem' class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
+      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600; class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
       <div/>
       
       `;
@@ -92,10 +103,10 @@ searchKeys.forEach((searchKey) => {
     let value = e.target.innerHTML;
     vidHold.textContent = value;
 
-    let filteredSermons = earlySermons.filter((sermon) => {
+    let filteredSermons = allSermons.filter((sermon) => {
       return (
         sermon.title.toLowerCase().charAt(0).includes(value.toLowerCase()) ||
-        sermon.year.includes(value)
+        sermon.year === value
       );
     });
 
@@ -112,8 +123,13 @@ searchKeys.forEach((searchKey) => {
 
       sermonElement.innerHTML = `
     <div>
-    <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title}</h3>
-    <p style='color:#5e9bc3; font-family:monospace; font-size:.7rem'> ${sermon.date}</p>
+    <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title.slice(
+      0,
+      30
+    )}..</h3>
+    <p style='color:#5e9bc3; font-family:monospace; font-size:.7rem'> ${
+      sermon.date
+    }</p>
     </div>
 
     <div>
@@ -124,12 +140,14 @@ searchKeys.forEach((searchKey) => {
       sermonsContainer.appendChild(sermonElement);
 
       sermonElement.addEventListener("click", () => {
+        document.getElementById("aside").style.display = "none";
+      document.getElementById("sidebar").style.display = "block";
         appContainer.innerHTML = `
       <div style=' width:100%' class='sermonBackground'>
       <div style='background-color:#22272a; display:flex; align-items:center; justify-content:center; padding:10px 0px;  color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${sermon.date} <span>${sermon.title}</span></div>
       <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${sermon.title}<p/>
       <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${sermon.date}<p/>
-      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600; line-height:6rem' class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
+      <p style='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; text-wrap:wrap; font-weight:600;  class='sermonText' id='sermonText'>🔊${sermon.sermon}🔑</p
       <div/>
       
       `;
@@ -141,11 +159,11 @@ searchKeys.forEach((searchKey) => {
 function goToSermons() {
   appContainer.innerHTML = "";
   appContainer.innerHTML = `
- <div style='width:100%' class='sermonBackground'>
-<div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${earlySermons[0].date} <span>${earlySermons[0].title}</span></div>
-<p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${earlySermons[0].title}<p/>
-<p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${earlySermons[0].date}<p/>
-<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${earlySermons[0].sermon}🔑</p
+ <div style='width:100%' class='sermonBackground' >
+<div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${allSermons[0].date} <span>${allSermons[0].title}</span></div>
+<p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${allSermons[0].title}<p/>
+<p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${allSermons[0].date}<p/>
+<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${allSermons[0].sermon}🔑</p
 <div/> 
 `;
 }
@@ -166,6 +184,38 @@ sermonBtn.addEventListener("click", () => {
 });
 allSongBtn.addEventListener("click", () => {
   navigateTo("allSongs");
+});
+
+vidBtn.addEventListener("click", () => {
+  appContainer.innerHTML = `
+  <div class="video-grid">
+        <div class="video-container">
+            <video controls autoplay loop>
+                <source src="../../assets/vids/smoketree.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls autoplay loop>
+                <source src="../../assets/vids/treeturn.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls autoplay loop>
+                <source src="../../assets/vids/harddrop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls autoplay loop>
+                <source src="../../assets/vids/treeturn.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+  
+  `;
 });
 // Define route handling logic
 function navigateTo(route) {

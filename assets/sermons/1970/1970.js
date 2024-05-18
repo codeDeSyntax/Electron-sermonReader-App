@@ -199,3 +199,5 @@ const secondSet = [
             sermon: ""
           },
     ]
+
+    export default secondSet;
