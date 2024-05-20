@@ -22,13 +22,15 @@
       <header class="header">
         <p>🍂</p>
         <div class="switchBtns">
+         <div style="display: flex; width: 20%; background-color: #d3dade; border-radius: 6px; align-items: center; justify-content: center;">
           <input
-            type="text"
-            placeholder="search his voice.."
-            class="search-bar"
-            id='searchBar'
-          />
-          <p style="cursor: pointer;" onclick="searchText()">🍳</p>
+          type="text"
+          placeholder="search his voice.."
+          class="search-bar"
+          id='searchBar'
+        />
+        <p style="cursor: pointer; padding: 0px 8px; " onclick="searchText()">🍳</p>
+         </div>
           <div class="dropdown">
             <button class="dropDownButton tracking-wide">Scroll to year ▼</button>
             <div class="dropdown-content">
@@ -226,4 +228,3 @@ function debounceSearch() {
 </body>
 
 </html>
-

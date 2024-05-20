@@ -197,6 +197,7 @@ aside {
   word-break: break-word;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
+  padding-top: 3rem;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -233,19 +234,20 @@ aside {
   align-items: center;
 }
 .search-bar {
-  width: 20%;
-  padding: 12px 8px;
+  width: 100%;
+  padding: 10px 8px;
   background: #171a1c;
   outline: none;
-  border: none;
+  border: 1px solid gray;
   color: #8c8c8c;
+  border-top-left-radius: 6px;
 }
 .search-bar::placeholder {
   color: #8c8c8c;
 }
 .search-bar {
   border-top-width: 1px;
-  border-radius: 0.375rem;
+  /* border-radius: 0.375rem; */
 }
 .dropDownButton {
   padding: 12px 5px;
@@ -307,6 +309,8 @@ video {
 }
 .highlight {
   color: yellow;
+  text-decoration: underline;
+  font-style: oblique;
 }
 /* @keyframes border-animation {
       0% { border-color: #ff0000; }

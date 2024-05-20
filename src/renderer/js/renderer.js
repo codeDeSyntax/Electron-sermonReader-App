@@ -64,6 +64,8 @@ function renderAllSermons() {
       sermonElement.style.background = "#303336";
     }
 
+     
+
     sermonElement.innerHTML = `
     <div>
     <h3 style='color:#bfc5c9; font-family:monospace; font-size:.9rem'>${sermon.title.slice(
@@ -101,7 +103,8 @@ function renderAllSermons() {
 searchKeys.forEach((searchKey) => {
   searchKey.addEventListener("click", (e) => {
     let value = e.target.innerHTML;
-    vidHold.textContent = value;
+    document.getElementById("aside").style.display = "block";
+    document.getElementById("sidebar").style.display = "none";
 
     let filteredSermons = allSermons.filter((sermon) => {
       return (
@@ -141,7 +144,7 @@ searchKeys.forEach((searchKey) => {
 
       sermonElement.addEventListener("click", () => {
         document.getElementById("aside").style.display = "none";
-      document.getElementById("sidebar").style.display = "block";
+        document.getElementById("sidebar").style.display = "block";
         appContainer.innerHTML = `
       <div style=' width:100%' class='sermonBackground'>
       <div style='background-color:#22272a; display:flex; align-items:center; justify-content:center; padding:10px 0px;  color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%;'>${sermon.date} <span>${sermon.title}</span></div>
