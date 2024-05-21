@@ -22,7 +22,7 @@
       <header class="header">
         <p>🍂</p>
         <div class="switchBtns">
-         <div style="display: flex; width: 20%; background-color: #d3dade; border-radius: 6px; align-items: center; justify-content: center;">
+         <div style="display: flex; width: 30%; background-color: #d3dade; border-radius: 6px; align-items: center; justify-content: center;">
           <input
           type="text"
           placeholder="search his voice.."
@@ -79,48 +79,16 @@
             </div> 
           </div>
 
-          <!-- Dropdown menu -->
+         <div class="navIcons">
+          <img src="../../assets/homegif.gif" alt="" style="cursor:pointer; border-radius: 50%; height: 30px; width: 30px;" id="homeBtn" title="home"/>
 
-          <button
-            class="nav-other-buttons"
-            type="button"
-            id="homeBtn"
-          >
-            Home
-          </button>
+          <img src="../../assets/cloud.png" alt="" style="cursor: pointer; height:30px;" id="sermonBtn" title="sermons">
 
-          <button
-            class="nav-other-buttons"
-            type="button"
-            id="sermonBtn"
-          >
-            Sermons
-          </button>
-
-          <button
-            class="nav-other-buttons"
-            type="button"
-            id="allSongBtn"
-          >
-            All songs
-          </button>
-
-          <button
-            onclick="navigateTo('new-song')"
-            class="nav-other-buttons"
-            type="button"
-          >
-            New song
-          </button>
-
-          <button
-            onclick="navigateTo('new-song')"
-            class="nav-other-buttons"
-            type="button"
-            id="vidBtn"
-          >
-            Vids
-          </button>
+          <img src="../../assets/songs.png" alt="" style="cursor: pointer; height: 30px;" id='allSongBtn' title="All songs">
+          <img src="../../assets/addsong.png" alt="" style="cursor: pointer; height: 30px;"  onclick="navigateTo('new-song')" title="add somg">
+          <img src="../../assets/vids.png" alt="" style="cursor: pointer; height: 30px;"  id="vidBtn" title="videos">
+         </div>
+          
          
         </div>
         <p>🍂</p>
@@ -128,12 +96,9 @@
 
     <div class="flex-container">
       <aside class="sidebar" id="sidebar">
-        <img src="../../assets/icons/book.png" alt="" class="bok" onclick="showSide()">
+        <img src="../../assets/sidepanel.png" alt="" onclick="showSide()" style="height: 30px; cursor: pointer;">
         <div style="display: flex; align-items: center; flex-direction: column;">
-          <p id="viewer" style="font-size: 2rem; color:#c8cfd3;display:flex; padding-top: 4px; cursor:pointer">
-            <span style="font-size: 24px;">A</span>
-            <span style="font-size: 12px;">a</span>
-        </p>
+          <img src="../../assets/font.png" alt="" id="viewer" style="height: 30px; cursor: pointer; margin-top: 1rem;">
           <div style="padding: 4px;" id="readSize">
             <li class="textSize">1</li>
             <li class="textSize">2</li>
@@ -201,6 +166,7 @@ function debounceSearch() {
     const paragraph = document.getElementById('sermonText');
     const text = paragraph.innerText.toLowerCase();
     const index = text.indexOf(input);
+    document.getElementById('searchBar').value = ''
 
     // Remove previous highlights
     paragraph.innerHTML = paragraph.innerText;
