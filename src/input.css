@@ -264,11 +264,13 @@ aside {
   /* border-radius: 0.375rem; */
 }
 .dropDownButton {
-  padding: 12px 5px;
-  background: #1e429f;
+  padding: 10px 5px;
+  background: rgba(0, 0, 0, 0.7);
+  font-family: monospace;
+  text-decoration: underline;
   border: none;
   color: #c8cfd3;
-  border-radius: 8px;
+  border-radius: 50%;
   /* width: 10%; */
   font-weight: 600;
 }

@@ -166,7 +166,7 @@ function goToSermons() {
 <div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${allSermons[0].date} <span>${allSermons[0].title}</span></div>
 <p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${allSermons[0].title}<p/>
 <p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${allSermons[0].date}<p/>
-<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:5.5rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${allSermons[0].sermon}🔑</p
+<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:2rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${allSermons[0].sermon}🔑</p
 <div/> 
 `;
 }
