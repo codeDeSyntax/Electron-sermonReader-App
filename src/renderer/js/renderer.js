@@ -1,7 +1,7 @@
 import earlySermons from "../../../assets/sermons/1964-1969/firstset.js";
 import secondSet from "../../../assets/sermons/1970/1970.js";
 
-const allSermons = earlySermons.concat(secondSet);
+let allMessages = earlySermons.concat(secondSet);
 
 const appContainer = document.getElementById("content");
 const sermonsContainer = document.getElementById("allsermons");
@@ -11,6 +11,7 @@ const homeBtn = document.getElementById("homeBtn");
 const sermonBtn = document.getElementById("sermonBtn");
 const allSongBtn = document.getElementById("allSongBtn");
 const vidBtn = document.getElementById("vidBtn");
+// const sortMessages = document.getElementById("alphaSort");
 // const searchBar = document.getElementById("searchBar");
 // let searchKey = document.getElementById("titleOrYear");
 let vidHold = document.getElementById("video");
@@ -54,7 +55,7 @@ function renderHomePage() {
 
 function renderAllSermons() {
   sermonsContainer.innerHTML = "";
-  allSermons.forEach((sermon) => {
+  allMessages.forEach((sermon) => {
     const sermonElement = document.createElement("li");
     sermonElement.classList.add("sermonDiv");
     // sermonElement.setAttribute('data_url', `${sermon.filename}`);
@@ -63,8 +64,6 @@ function renderAllSermons() {
     } else {
       sermonElement.style.background = "#303336";
     }
-
-     
 
     sermonElement.innerHTML = `
     <div>
@@ -100,13 +99,22 @@ function renderAllSermons() {
   });
 }
 
+// sortMessages.addEventListener("click", () => {
+//   allMessages.sort( (p1, p2) => {
+//     if (p1.title.charAt(0) < title.charAt(0)) return -1;
+//     if (p1.title.charAt(0) > p2.title.charAt(0)) return 1;
+//     return 0;
+//   });
+//   console.log(typeof(allMessages));
+// });
+
 searchKeys.forEach((searchKey) => {
   searchKey.addEventListener("click", (e) => {
     let value = e.target.innerHTML;
     document.getElementById("aside").style.display = "block";
     document.getElementById("sidebar").style.display = "none";
 
-    let filteredSermons = allSermons.filter((sermon) => {
+    let filteredSermons = allMessages.filter((sermon) => {
       return (
         sermon.title.toLowerCase().charAt(0).includes(value.toLowerCase()) ||
         sermon.year === value
@@ -163,10 +171,10 @@ function goToSermons() {
   appContainer.innerHTML = "";
   appContainer.innerHTML = `
  <div style='width:100%' class='sermonBackground' >
-<div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${allSermons[0].date} <span>${allSermons[0].title}</span></div>
-<p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${allSermons[0].title}<p/>
-<p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${allSermons[0].date}<p/>
-<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:2rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${allSermons[0].sermon}🔑</p
+<div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${allMessages[0].date} <span>${allMessages[0].title}</span></div>
+<p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${allMessages[0].title}<p/>
+<p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${allMessages[0].date}<p/>
+<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:2rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${allMessages[0].sermon}🔑</p
 <div/> 
 `;
 }
@@ -190,6 +198,7 @@ allSongBtn.addEventListener("click", () => {
 });
 
 vidBtn.addEventListener("click", () => {
+  document.getElementById("sidebar").style.display = "none";
   appContainer.innerHTML = `
   <div class="video-grid">
         <div class="video-container">
