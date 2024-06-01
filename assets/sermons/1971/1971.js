@@ -41276,3 +41276,5 @@ const thirdSet = [
        understanding.`,
       },
 ]
+
+export default thirdSet;

@@ -1,7 +1,10 @@
 import earlySermons from "../../../assets/sermons/1964-1969/firstset.js";
 import secondSet from "../../../assets/sermons/1970/1970.js";
+import thirdSet from "../../../assets/sermons/1971/1971.js";
+import fourthSet from "../../../assets/sermons/1972/1972.js";
 
-let allMessages = earlySermons.concat(secondSet);
+
+let allMessages = earlySermons.concat(secondSet).concat(thirdSet).concat(fourthSet);
 
 const appContainer = document.getElementById("content");
 const sermonsContainer = document.getElementById("allsermons");

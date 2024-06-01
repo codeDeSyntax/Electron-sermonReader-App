@@ -1,36 +1,25 @@
 {
-  "name": "your-app-name",
+  "name": "bob-lambert",
   "version": "1.0.0",
-  "description": "Your Electron App",
+  "description": "Transcribed sermon of Bob lambert",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder"
   },
+  "author": "Josiah",
   "build": {
     "appId": "com.yourapp.id",
     "files": [
       "**/*"
     ],
     "win": {
-      "target": "nsis",
-      "extraFiles": [
-        {
-          "from": "node_modules/ffmpeg-static/bin",
-          "to": ".",
-          "filter": [
-            "**/*"
-          ]
-        }
-      ]
+      "target": "nsis"
     }
   },
   "devDependencies": {
     "electron": "^30.0.1",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^latest"
   },
-  "dependencies": {
-    "electron": "^30.0.1",
-    "electronmon": "^2.0.3"
-  }
+  "dependencies": {}
 }
