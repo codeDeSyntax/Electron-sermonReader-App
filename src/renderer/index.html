@@ -160,38 +160,49 @@
 
     let debounceTimeout;
 
-function debounceSearch() {
-    clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(searchText, 300); // Adjust the debounce delay as needed
-}
-    function searchText() {
-    const input = document.getElementById('searchBar').value.toLowerCase();
-    const paragraph = document.getElementById('sermonText');
-    const text = paragraph.innerText.toLowerCase();
-    const index = text.indexOf(input);
-    document.getElementById('searchBar').value = ''
-
-    // Remove previous highlights
-    paragraph.innerHTML = paragraph.innerText;
-    if (index !== -1 && input.length > 0) {
-        // Highlight the text
-        const highlightedText = paragraph.innerHTML.substring(0, index) + 
-            '<span class="highlight">' + paragraph.innerHTML.substring(index, index + input.length) + '</span>' + 
-            paragraph.innerHTML.substring(index + input.length);
-        paragraph.innerHTML = highlightedText;
-
-        // Scroll to the highlighted text
-        const highlightElement = document.querySelector('.highlight');
-        if (highlightElement) {
-            highlightElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        function debounce(func, delay) {
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(debounceTimeout);
+                debounceTimeout = setTimeout(() => func.apply(context, args), delay);
+            };
         }
-    }
-}
 
+        const debounceSearch = debounce(searchText, 300);
 
-   
-    
-    
+        function searchText() {
+            const input = document.getElementById('searchBar').value.trim().toLowerCase();
+            const paragraph = document.getElementById('sermonText');
+            const text = paragraph.innerText.toLowerCase();
+
+            // Remove previous highlights
+            paragraph.innerHTML = paragraph.innerText;
+
+            if (input.length > 0) {
+                const escapedInput = escapeRegExp(input);
+                const regex = new RegExp(`(${escapedInput})`, 'gi');
+                const matches = [...text.matchAll(regex)];
+
+                if (matches.length > 0) {
+                    let highlightedText = text.replace(regex, '<span class="highlight">$1</span>');
+                    paragraph.innerHTML = highlightedText;
+
+                    // Scroll to the first highlighted text
+                    const highlightElement = document.querySelector('.highlight');
+                    if (highlightElement) {
+                        highlightElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    // Reset scroll position if no match is found
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+        }
     </script>
 <script type="module" src="../../src/renderer/js/renderer.js"></script>
 </body>

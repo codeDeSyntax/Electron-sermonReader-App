@@ -2,9 +2,10 @@ import earlySermons from "../../../assets/sermons/1964-1969/firstset.js";
 import secondSet from "../../../assets/sermons/1970/1970.js";
 import thirdSet from "../../../assets/sermons/1971/1971.js";
 import fourthSet from "../../../assets/sermons/1972/1972.js";
+import lastSet from "../../../assets/sermons/1973/1973.js";
 
 
-let allMessages = earlySermons.concat(secondSet).concat(thirdSet).concat(fourthSet);
+let allMessages = earlySermons.concat(secondSet).concat(thirdSet).concat(fourthSet).concat(lastSet);
 
 const appContainer = document.getElementById("content");
 const sermonsContainer = document.getElementById("allsermons");
@@ -151,6 +152,7 @@ searchKeys.forEach((searchKey) => {
     <p style='color:#bfc5c9; font-family:monospace; font-size:.7rem'>Location:</p>
     </div>
   `;
+
       sermonsContainer.appendChild(sermonElement);
 
       sermonElement.addEventListener("click", () => {
@@ -171,13 +173,16 @@ searchKeys.forEach((searchKey) => {
 });
 
 function goToSermons() {
+  const randomIndex = Math.floor(Math.random() * allMessages.length)
+  const randomSermon = allMessages[randomIndex]
+
   appContainer.innerHTML = "";
   appContainer.innerHTML = `
  <div style='width:100%' class='sermonBackground' >
-<div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${allMessages[0].date} <span>${allMessages[0].title}</span></div>
-<p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${allMessages[0].title}<p/>
-<p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; letter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${allMessages[0].date}<p/>
-<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:2rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${allMessages[0].sermon}🔑</p
+<div style='background-color:#22272a; padding:10px 0px; text-align:center; color:#c8cfd3; font-family:monospace; font-size:1rem; position:fixed; width:100%; ' id:"sermonhead">${randomSermon.date} <span>${randomSermon.title}</span></div>
+<p style='color:#d3dade; font-family:monospace; font-size:2rem;text-align:left; font-weight:500; letter-spacing: 0.025em; text-align:center; font-style:italic; margin-top:5rem;'>${randomSermon.title}<p/>
+<p style='color:#d3dade; font-family:monospace; font-size:1.5rem;text-align:left; font-weight:500; le-tter-spacing: 0.020rem; text-align:center; padding-bottom:2rem;'>${randomSermon.date}<p/>
+<p style ='color:#c8cfd3; font-family:monospace; padding:20px; font-size:2rem; text-align:center; font-weight:600;' class='sermonText' id='sermonText'>🔊${randomSermon.sermon}🔑</p
 <div/> 
 `;
 }
