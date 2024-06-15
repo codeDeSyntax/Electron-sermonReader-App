@@ -8,6 +8,7 @@ const isMac = process.platform === "darwin";
 
 let mainWindow;
 let aboutWindow;
+let songBookWindow;
 
 // Main Window
 function createMainWindow() {
@@ -42,6 +43,16 @@ function createAboutWindow() {
   });
 
   aboutWindow.loadFile(path.join(__dirname, "./renderer/about.html"));
+}
+function openSongBook() {
+  songBookWindow = new BrowserWindow({
+    width: 1000,
+    height: 1000,
+    title: "song book",
+    icon: `${__dirname}/assets/Brobob.jpg`,
+  });
+
+  songBookWindow.loadFile(path.join(__dirname, "./src/renderer/songbook.html"));
 }
 
 // When the app is ready, create the window
@@ -83,6 +94,10 @@ const menu = [
               label: "About",
               click: createAboutWindow,
             },
+            {
+              label:'Open songbook',
+              click:openSongBook,
+            }
           ],
         },
       ]

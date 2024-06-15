@@ -199,6 +199,7 @@ aside {
   text-overflow: ellipsis;
   overflow-wrap: break-word;
   padding-top: 3rem;
+  color: #c8cfd3;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -303,7 +304,7 @@ aside {
   padding-top: 5rem;
   background: url("../assets/images/darker.jpg");
   background-size: cover;
-  height: 700vh;
+  /* height: 700vh; */
   background-position: center;
   justify-content: center;
   display: grid;

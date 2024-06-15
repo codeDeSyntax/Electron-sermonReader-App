@@ -6,10 +6,31 @@
       http-equiv="Content-Security-Policy"
       content="script-src 'self' 'unsafe-inline';"
     />
-  <link rel="stylesheet" href="../input.css" />
-  <title>Bob Lambert</title>
+    <title>Bob Lambert</title>
+    <link rel="stylesheet" href="../input.css" />
+  <link rel="stylesheet" href="../settings.css">
   <style>
-   
+   body {
+      background-color: #000; /* Dark background */
+      
+    }
+    .stars {
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: 0px 0px 2px 1px white, 20px 30px 2px 1px white, 40px 20px 2px 1px white, 
+                  60px 50px 2px 1px white, 80px 60px 2px 1px white, 100px 70px 2px 1px white, 
+                  120px 80px 2px 1px white, 140px 90px 2px 1px white, 160px 100px 2px 1px white;
+      animation: twinkling 5s infinite alternate;
+    }
+    @keyframes twinkling {
+      0% {
+        transform: scale(2);
+      }
+      100% {
+        transform: scale(1.5);
+      }
+    }
 
 
   </style>
@@ -17,11 +38,11 @@
 </head>
 
 <body>
-
   <main class="main">
-      <header class="header">
-        <p>🍂</p>
-        <div class="switchBtns">
+    <header class="header">
+      <p>🍂</p>
+      <div class="switchBtns">
+          
          <div style="display: flex; width: 30%; background-color: #d3dade; border-radius: 6px; align-items: center; justify-content: center;">
           <input
           type="text"
@@ -87,8 +108,23 @@
           <img src="../../assets/songs.png" alt="" style="cursor: pointer; height: 30px;" id='allSongBtn' title="All songs">
           <img src="../../assets/addsong.png" alt="" style="cursor: pointer; height: 30px;"  onclick="navigateTo('new-song')" title="add somg">
           <img src="../../assets/vids.png" alt="" style="cursor: pointer; height: 30px;"  id="vidBtn" title="videos">
+          <img src="../../assets/settings.png" alt="" style="cursor: pointer; height: 30px;" id="settings-button" title="setting">
+        
          </div>
-          
+         <div id="settings-panel" class="hidden">
+          <h2 style="color: #d3dade;">Settings</h2> 
+          <!-- <a href="" style="color: #d3dade; padding: 4px; background-color:blue; width: 5vw; text-decoration: none;">reset</a> -->
+          <label for="bg-color">Background Color:</label>
+          <input type="color" id="bg-color" name="bg-color" value="#d3dade">
+          <label for="text-color">Text Color:</label>
+          <input type="color" id="text-color" name="text-color">
+          <label for="font-size">Font Size:</label>
+          <input type="range" id="font-size" name="font-size" min="12" max="24" value="16">
+          <span id="font-size-value">16px</span>
+          <label for="dark-mode">Dark Mode:</label>
+          <input type="checkbox" id="dark-mode" name="dark-mode">
+          <button id="apply-settings" class="apply">Apply</button>
+      </div>
          
         </div>
         <p>🍂</p>
@@ -121,7 +157,9 @@
          
         </div>
       </aside>
-      <section class="contentSwitch" id="content" src="../../assets/images/Bro bob.jpg"></section>
+      <section class="contentSwitch" id="content" src="../../assets/images/Bro bob.jpg">
+        
+      </section>
     </div>
   </main>
   <script>
@@ -155,8 +193,46 @@
     const hideSide = () => {
       document.getElementById("sidebar").style.display = "block";
       document.getElementById("aside").style.display = "none";
+      
     }
+
+    // building setting panel
+
+    document.getElementById('settings-button').addEventListener('click', function() {
+    document.getElementById('settings-panel').classList.toggle('hidden');
+});
+
+document.getElementById('apply-settings').addEventListener('click', function() {
+    const bgColor = document.getElementById('bg-color').value;
+    const textColor = document.getElementById('text-color').value;
+    const fontSize = document.getElementById('font-size').value+'px';
+    const darkMode = document.getElementById('dark-mode').checked;
+
+    document.getElementById("sermonText").style.color = textColor
+    document.getElementById("sermonText").style.backgroundColor = bgColor
+    document.getElementById("sermonText").style.fontSize = fontSize
+    console.log(textColor);
+    console.log(fontSize);
+    
+
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+
+    document.getElementById('settings-panel').classList.add('hidden');
+});
+
+document.getElementById('font-size').addEventListener('input', function() {
+    document.getElementById('font-size-value').textContent = this.value + 'px';
+});
+
+
+
+
    
+// building search functionality
 
     let debounceTimeout;
 

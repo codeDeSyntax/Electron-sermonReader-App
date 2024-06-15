@@ -1,0 +1,51 @@
+#settings-button {
+  background-color: #abd4de;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.apply {
+  background-color: #005cc8;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#settings-panel {
+  position: absolute;
+  top: 90%;
+  left: 62%;
+  background-color: #2f3235;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  gap: 4px;
+  color: aliceblue;
+  font-family: monospace;
+  flex-direction: column;
+}
+
+#settings-panel.hidden {
+  display: none;
+}
+
+#settings-panel label {
+  margin-top: 0.5rem;
+}
+
+#font-size-value {
+  display: inline-block;
+  width: 40px;
+  text-align: right;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: white;
+}
